@@ -7,6 +7,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var port = 9001;
 var app = express();
 var User = require('./api/models/user');
+var ReviewsCtrl = require('./api/controllers/newRatingCtrl');
 
 
 app.use(bodyParser.json());
@@ -23,26 +24,21 @@ mongoose.connect('mongodb://localhost/rateit', function(){
 app.listen(port, function(){
 	console.log('listening on port ' + port);
 })
-// passport.use();
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      user.validPassword(password).then(function(res) {
-			if (res) {
-				return done(null, user);
-			}
-		}, function(err){
-			if(err){
+    User.findOne({ username: username }).exec().then(function(user) {
+		if (!user) {
+			return done(null, false);
+		}
+		user.comparePassword(password).then(function(isMatch) {
+			if (!isMatch) {
 				return done(null, false);
 			}
+			return done(null, user);
 		});
-    });
-  }
-));
+	});
+}));
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -73,3 +69,6 @@ app.post('/api/register', function(req, res) {
 		return res.json(user);
 	});
 });
+app.get('/api/get-review', isAuthed, ReviewsCtrl.list);
+app.post('/api/post-review', isAuthed, ReviewsCtrl.create);
+app.delete('/api/todos/:id', isAuthed, ReviewsCtrl.erase);

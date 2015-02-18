@@ -4,7 +4,7 @@ var schema = mongoose.Schema({
 	companyName: {type: String, require: true},
 	title: {type: String, require: true},
 	yourReview: {type: String, require: true},
-	stars: {enum:[1, 2, 3, 4, 5]},
+	stars: {type: Number, enum:[1, 2, 3, 4, 5]},
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true }
 });
 

@@ -18,7 +18,15 @@
 <body ng-app="rateIt" ng-controller="mainCtrl">
 	<div>
 		<header>Header</header>
-		<nav>Navigation</nav>
+		<nav>
+			<ul>
+				
+					<h3>Login</h3>
+					<h3>Register</h3>
+					<h3>Contact Us</h3>
+			    
+		    </ul>
+	    </nav>
 		<main><ng-view></ng-view></main>
 		<aside>Aside Content</aside>
 		<footer>Footer</footer>
@@ -32,6 +40,7 @@
 	<script type="text/javascript" src="js/services/loginService.js"></script>
 	<script type="text/javascript" src="js/controllers/mainCtrl.js"></script>
 	<script type="text/javascript" src="js/controllers/dashboardCtrl.js"></script>
+	<script type="text/javascript" src="js/services/dashboardService.js"></script>
 	<script type="text/javascript" src="js/controllers/searchResultsCtrl.js"></script>
 </body>
 

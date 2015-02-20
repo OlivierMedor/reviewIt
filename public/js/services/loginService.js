@@ -17,4 +17,23 @@ app.service('LoginService', function($q, $http) {
 		});
 		return deferred.promise;
 	}
+
+	this.login = function(username, password){
+		var deferred = $q.defer();
+		$http({
+			method: 'POST',
+			url: '/api/auth',
+			data: {
+				username: username,
+				password: password
+			}
+		}).then(function(response){
+			deferred.resolve(response.data);
+		})
+		.catch(function(err) {
+			console.log("error logging in");
+			deferred.reject(err);
+		});
+		return deferred.promise;
+	}
 })

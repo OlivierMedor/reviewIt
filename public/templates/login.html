@@ -1,0 +1,32 @@
+</head>
+
+<body>
+
+
+	<div id="login">
+
+		<h2><span class="fontawesome-lock"></span>Sign In</h2>
+
+		<form action="javascript:void(0);" method="POST">
+
+			<fieldset>
+
+				<p><label for="User Name">User Name</label></p>
+				<p><input ng-model="username" type="User Name" id="User Name" value="User Name" onBlur="if(this.value=='')this.value='User Name'" onFocus="if(this.value=='User Name')this.value=''"></p>
+
+				<p><label for="email">E-mail Address</label></p>
+				<p><input ng-model="email" type="email" id="email" value="Your-Email@address.com" onBlur="if(this.value=='')this.value='Your-Email@address.com'" onFocus="if(this.value=='Your-Mail@address.com')this.value=''"></p> <!-- JS because of IE support; better: placeholder="mail@address.com" -->
+
+				<p><label for="password">Password</label></p>
+				<p><input ng-model="password" type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
+				<p><input type="submit" value="Sign In" ng-click="clickRegister()"></p>
+
+			</fieldset>
+
+		</form>
+
+	</div> <!-- end login -->
+
+</body>	
+</html>

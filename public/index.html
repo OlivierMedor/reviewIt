@@ -1,25 +1,38 @@
 <!Doctype html>
 <html>
 <head>
+
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta charset="utf-8">
+
+	
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 	<title>RateIt</title>
 </head>
 
 <body ng-app="rateIt" ng-controller="mainCtrl">
-	<ng-view></ng-view>
 	<div>
-		<header><ng-view></ng-view>Header</header>
+		<header>Header</header>
 		<nav>Navigation</nav>
-		<main >Main Content</main>
-		<!-- <aside>Aside Content</aside> -->
+		<main><ng-view></ng-view></main>
+		<aside>Aside Content</aside>
 		<footer>Footer</footer>
 	</div>
+	
+	
 	<!-- AngularJS -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular-route.js"></script>
 	<SCRIPT TYPE="text/javascript" src="js/controllers/app.js"></SCRIPT>
+	<script type="text/javascript" src="js/services/loginService.js"></script>
 	<script type="text/javascript" src="js/controllers/mainCtrl.js"></script>
 	<script type="text/javascript" src="js/controllers/dashboardCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/searchResultsCtrl.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ app.config(function($routeProvider){
 	$routeProvider
 		 .when('/login',{
     templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
+    controller: 'mainCtrl'
   })
   .when('/dashboard/:userId', {
     templateUrl: 'templates/mydashboard.html',
@@ -14,4 +14,5 @@ app.config(function($routeProvider){
     templateUrl: 'templates/search-results.html',
     controller: 'searchResultsCtrl'
   })
-  })
+})
+  

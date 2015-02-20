@@ -30,7 +30,7 @@ schema.pre('save', function(next){
 		if(err){
 			return next(err);
 		}
-		bcrypt.hash(user.password, salt, progress, function(err, hash){
+		bcrypt.hash(user.password, salt, null, function(err, hash){
 			user.password = hash;
 			return next();
 		});

@@ -64,6 +64,7 @@ app.post('/api/register', function(req, res) {
 	var newUser = new User(req.body);
 	newUser.save(function(err, user) {
 		if (err) {
+			console.log("In user save: ", err)
 			return res.status(500).end();
 		}
 		return res.json(user);
@@ -71,4 +72,4 @@ app.post('/api/register', function(req, res) {
 });
 app.get('/api/get-review', isAuthed, ReviewsCtrl.list);
 app.post('/api/post-review', isAuthed, ReviewsCtrl.create);
-app.delete('/api/todos/:id', isAuthed, ReviewsCtrl.erase);
+app.delete('/api/delete-review/:id', isAuthed, ReviewsCtrl.erase);

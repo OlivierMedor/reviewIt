@@ -17,7 +17,7 @@ module.exports = {
 		});
 	},
 	 erase: function(req, res) {
-		rating.delete({ _id: req.params.id }).exec(function(err) {
+		rating.remove({ _id: req.params.id }).exec(function(err) {
 			return res.status(200).end();
 		});
 

@@ -6,9 +6,10 @@ app.service('Map', function($q, $window) {
     this.init = function() {
         
         $window.navigator.geolocation.getCurrentPosition(function(position){
+            console.log(position.coords.latitude, position.coords.longitude);
             var options = {
             center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            zoom: 15,
+            zoom: 13,
             disableDefaultUI: true    
         }
         this.map = new google.maps.Map(

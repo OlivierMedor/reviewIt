@@ -5,17 +5,23 @@ app.service('Map', function($q, $window) {
     var location;    
     
     this.init = function() {
-    var newOptions = {
-        bounds: location
-    };
-    var newInput = document.getElementById('pac-input');
-    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(newInput);
-    var autocomplete = new google.maps.places.Autocomplete(newInput, newOptions);
+    
     
         
         $window.navigator.geolocation.getCurrentPosition(function(position){
             console.log(position.coords.latitude, position.coords.longitude);
             location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+            console.log(location)
+            var defaultBounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            var newOptions = {
+                bounds: defaultBounds,
+                types: ['establishment']
+            };
+            var newInput = document.getElementById('pac-input');
+            //map.controls[google.maps.ControlPosition.TOP_LEFT].push(newInput);
+            var autocomplete = new google.maps.places.Autocomplete(newInput, newOptions);
             var options = {
                 center: location,
                 zoom: 13,
@@ -49,6 +55,7 @@ app.service('Map', function($q, $window) {
         marker = new google.maps.Marker({
             draggable:true,
             map: map,
+
             position: res.geometry.location,
             animation: google.maps.Animation.DROP
         });

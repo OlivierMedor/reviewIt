@@ -18,7 +18,7 @@ body > div > header,  nav, main, aside, footer {
 }
 body > div > header {
 	order: 1;
-	height:  100px;
+	height:  25px;
 	flex: 0 1 100%;
 }
 
@@ -37,7 +37,7 @@ body > div > aside {
 }
 body > div > footer {
 	order: 5;
-	height: 100px;
+	height: 25px;
 	flex: 0 1 100%;
 }
 .container {
@@ -147,4 +147,16 @@ h3 img {
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid silver;
+}
+
+.searchForm {
+	float: left;
+}
+.input-group {
+	float: left;
+}
+
+.form-horizontal {
+	margin-top:0;
+	
 }

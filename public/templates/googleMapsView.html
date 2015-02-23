@@ -1,31 +1,11 @@
 
 <div class="container" ng-controller="newPlaceCtrl">
     
-    <h3 class="clearfix">
+    <!-- <h3 class="clearfix">
         <img class="pull-left" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png"/>
         <img class="pull-right" src="http://upload.wikimedia.org/wikipedia/commons/9/9a/Google_maps_logo.png"/>
-    </h3>
-    
-    <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
-        <b>API Error : </b>
-        <span>{{ apiStatus }}</span>
-    </div>
-    
-    <form name="searchForm" novalidate 
-    ng-submit="search()">
-        <div class="input-group">
-            <input id="pac-input" name="place" type="text" class="form-control" 
-            ng-model="searchPlace" required autofocus />
-            <span class="input-group-btn">
-                <button class="btn btn-primary" 
-                ng-disabled="searchForm.$invalid">Search</button>
-            </span>
-        </div>
-    </form>
-        
-    <div id="map"></div>
-      
-    <form name="resForm" class="form-horizontal" novalidate 
+    </h3> -->
+    <form ng-hide="formVar" name="resForm" class="form-horizontal" novalidate 
     ng-submit="send()">
         <div class="form-group">
             <label for="resName" class="col-xs-2 control-label">Name</label>
@@ -55,5 +35,32 @@
             </div>
         </div>
     </form>
+    
+    <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+        <b> Error : </b>
+        <span>{{ apiStatus }}</span>
+    </div>
+    <div ng-show="formVar">
+   <select class="searchForm"><option value="SearchReviews">Search Reviews</option><option value="WriteReviews">Write Reviews</option></select><form name="searchForm" novalidate 
+    ng-submit="search()">
+        <div class="input-group">
+            <input id="pac-input" name="place" type="text" class="form-control" 
+            ng-model="searchPlace" required autofocus />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" 
+                ng-disabled="searchForm.$invalid">Submit</button>
+            </span>
+        </div>
+    </form>
+</div>
+    <br>
+    
+    
+    
+
+        
+    <div id="map"></div>
+      
+
     <div id="map-canvas"></div>
 </div>

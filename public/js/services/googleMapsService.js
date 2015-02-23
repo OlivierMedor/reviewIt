@@ -1,30 +1,35 @@
 var app = angular.module('rateIt');
 app.service('Map', function($q, $window) {
 
-    
+    var map, places, marker;
+    var location;    
     
     this.init = function() {
         
         $window.navigator.geolocation.getCurrentPosition(function(position){
             console.log(position.coords.latitude, position.coords.longitude);
+            location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
             var options = {
-            center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            zoom: 13,
-            disableDefaultUI: true    
-        }
-        this.map = new google.maps.Map(
-            document.getElementById("map"), options
-        );
-        this.places = new google.maps.places.PlacesService(this.map);
+                center: location,
+                zoom: 13,
+                disableDefaultUI: true    
+            }
+            map = new google.maps.Map(
+                document.getElementById("map"), options
+            );
+            places = new google.maps.places.PlacesService(map);
         });
 
         
     }
     
     this.search = function(str) {
+        console.log(places)
         var d = $q.defer();
-        this.places.textSearch({query: str}, function(results, status) {
-            if (status == 'OK') {
+        places.nearbySearch({keyword: str, location: location, radius: 20000}, function(results, status) {
+
+            if (status === 'OK') {
+                console.log(results)
                 d.resolve(results[0]);
             }
             else d.reject(status);
@@ -33,41 +38,24 @@ app.service('Map', function($q, $window) {
     }
     
     this.addMarker = function(res) {
-        if(this.marker) this.marker.setMap(null);
-        this.marker = new google.maps.Marker({
-            map: this.map,
+        if(marker) marker.setMap(null);
+        marker = new google.maps.Marker({
+            draggable:true,
+            map: map,
             position: res.geometry.location,
             animation: google.maps.Animation.DROP
         });
-        this.map.setCenter(res.geometry.location);
+        google.maps.event.addListener(marker, 'click', toggleBounce);
+        map.setCenter(res.geometry.location);
     }
+    function toggleBounce() {
+
+  if (marker.getAnimation() != null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
     
 });
 
-app.controller('newPlaceCtrl', function($scope, Map) {
-    
-    $scope.place = {};
-    
-    $scope.search = function() {
-        $scope.apiError = false;
-        Map.search($scope.searchPlace)
-        .then(
-            function(res) { // success
-                Map.addMarker(res);
-                $scope.place.name = res.name;
-                $scope.place.lat = res.geometry.location.lat();
-                $scope.place.lng = res.geometry.location.lng();
-            },
-            function(status) { // error
-                $scope.apiError = true;
-                $scope.apiStatus = status;
-            }
-        );
-    }
-    
-    $scope.send = function() {
-        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);    
-    }
-    
-    Map.init();
-});

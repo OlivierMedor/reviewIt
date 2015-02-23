@@ -8,6 +8,7 @@ app.controller('newPlaceCtrl', function($scope, Map) {
         Map.search($scope.searchPlace)
         .then(
             function(res) { // success
+                console.log(res)
                 Map.addMarker(res);
                 $scope.place.name = res.name;
                 $scope.place.lat = res.geometry.location.lat();
@@ -25,5 +26,5 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     }
     
 
-    Map.init(lat, lng);
+    Map.init();
 });

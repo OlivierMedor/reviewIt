@@ -1,0 +1,61 @@
+
+<div class="container" ng-controller="newPlaceCtrl">
+    
+    <h3 class="clearfix">
+        <img class="pull-left" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png"/>
+        <img class="pull-right" src="http://upload.wikimedia.org/wikipedia/commons/9/9a/Google_maps_logo.png"/>
+    </h3>
+    
+    <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+        <b>API Error : </b>
+        <span>{{ apiStatus }}</span>
+    </div>
+    
+    <form name="searchForm" novalidate 
+    ng-submit="search()">
+        <div class="input-group">
+            <input name="place" type="text" class="form-control" 
+            ng-model="searchPlace" required autofocus />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" 
+                ng-disabled="searchForm.$invalid">Search</button>
+            </span>
+        </div>
+    </form>
+        
+    <div id="map"></div>
+      
+    <form name="resForm" class="form-horizontal" novalidate 
+    ng-submit="send()">
+        <div class="form-group">
+            <label for="resName" class="col-xs-2 control-label">Name</label>
+            <div class="col-xs-10">
+                <input name="resName" type="text" class="form-control" 
+                ng-model="place.name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+            <div class="col-xs-10">
+                <input name="resLat" type="number" class="form-control" 
+                ng-model="place.lat" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLng" class="col-xs-2 control-label">Longitude</label>
+            <div class="col-xs-10">
+                <input name="resLng" type="number" class="form-control" 
+                ng-model="place.lng" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-success" 
+                ng-disabled="resForm.$invalid">Confirm</button>
+            </div>
+        </div>
+    </form>
+    hello world
+    {{lat}}
+    {{lng}}
+</div>

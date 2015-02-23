@@ -19,6 +19,15 @@
 	<div>
 		<header>Header</header>
 		<nav>
+			<h2>Search</h2>
+			<input ng-model="chosenPlace" details="chosenPlaceDetails" googleplace/>
+			<div>
+    <div>Google Places Autocomplte integration in Angular</div>
+    <div>To Test, start typing the name of any Indian city</div>
+    <div>selection is: {{chosenPlace}}</div>
+    <div>details object is: {{chosenPlaceDetails}}</div>
+    <div></div>
+</div>
 			<ul>
 				
 					<h3>Login</h3>
@@ -27,13 +36,23 @@
 			    
 		    </ul>
 	    </nav>
-		<main><ng-view></ng-view></main>
-		<aside>Aside Content</aside>
+		<main><ng-view></ng-view>
+			
+		</main>
+		<aside>
+			
+
+
+			Aside Content
+
+
+		</aside>
 		<footer>Footer</footer>
 	</div>
 	
 	
 	<!-- AngularJS -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular-route.js"></script>
 	<SCRIPT TYPE="text/javascript" src="js/controllers/app.js"></SCRIPT>
@@ -42,6 +61,8 @@
 	<script type="text/javascript" src="js/controllers/dashboardCtrl.js"></script>
 	<script type="text/javascript" src="js/services/dashboardService.js"></script>
 	<script type="text/javascript" src="js/controllers/searchResultsCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/googleMapsCtrl.js"></script>
+	<script type="text/javascript" src="js/services/googleMapsService.js"></script>
 </body>
 
 </html>

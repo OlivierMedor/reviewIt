@@ -14,7 +14,7 @@
     <form name="searchForm" novalidate 
     ng-submit="search()">
         <div class="input-group">
-            <input name="place" type="text" class="form-control" 
+            <input id="pac-input" name="place" type="text" class="form-control" 
             ng-model="searchPlace" required autofocus />
             <span class="input-group-btn">
                 <button class="btn btn-primary" 
@@ -55,7 +55,5 @@
             </div>
         </div>
     </form>
-    hello world
-    {{lat}}
-    {{lng}}
+    <div id="map-canvas"></div>
 </div>

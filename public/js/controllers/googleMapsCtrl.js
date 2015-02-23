@@ -1,6 +1,7 @@
 var app = angular.module('rateIt');
 app.controller('newPlaceCtrl', function($scope, Map) {
     
+
     $scope.place = {};
     
     $scope.search = function() {
@@ -28,3 +29,5 @@ app.controller('newPlaceCtrl', function($scope, Map) {
 
     Map.init();
 });
+
+

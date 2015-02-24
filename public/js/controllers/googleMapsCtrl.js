@@ -24,12 +24,15 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
                 console.log(res)
                 $scope.formVar = false;
                 Map.addMarker(res);
+                var photos = res.photos;
+                if(photos){
+                    $scope.newphotos = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
+                     }
                 $scope.place.name = res.name;
                 $scope.place.vicinity = newAutoCompleteVar.vicinity;
                 // $scope.place.lng = res.geometry.location.lng();
                 var photos = res.photos;
-                $scope.newphotos = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
-                console.log($scope.newphotos);
+                
                 
             },
             function(status) { // error

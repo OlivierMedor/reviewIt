@@ -160,3 +160,8 @@ h3 img {
 	margin-top:0;
 	
 }
+.newDiv {
+	height: 255px;
+	width: 150px;
+	float: left;
+}

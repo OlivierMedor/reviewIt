@@ -40,12 +40,12 @@ app.service('Map', function($q, $window) {
     
     this.search = function(str) {
 
-        
+    
         var d = $q.defer();
         places.nearbySearch({keyword: str, location: location, radius: 20000}, function(results, status) {
 
             if (status === 'OK') {
-                console.log(results)
+                
                 d.resolve(results[0]);
             }
             else d.reject(status);
@@ -58,7 +58,6 @@ app.service('Map', function($q, $window) {
         marker = new google.maps.Marker({
             draggable:true,
             map: map,
-
             position: res.geometry.location,
             animation: google.maps.Animation.DROP
         });

@@ -7,8 +7,8 @@ app.config(function($routeProvider){
     controller: 'mainCtrl'
   })
   .when('/dashboard/:userId', {
-    templateUrl: 'templates/mydashboard.html',
-    controller: 'dashboardCtrl'
+    templateUrl: 'templates/googleMapsView.html',
+    controller: 'newPlaceCtrl'
   })
   .when('/search-results', {
     templateUrl: 'templates/search-results.html',
@@ -18,9 +18,9 @@ app.config(function($routeProvider){
     templateUrl: 'templates/register.html',
     controller: 'mainCtrl'
   })
-  .when('/', {
-    templateUrl: 'templates/googleMapsView.html',
-    controller: 'newPlaceCtrl'
-  })
+  // .when('/', {
+  //   templateUrl: 'templates/googleMapsView.html',
+  //   controller: 'newPlaceCtrl'
+  // })
 })
   

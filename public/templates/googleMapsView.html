@@ -5,6 +5,12 @@
         <img class="pull-left" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png"/>
         <img class="pull-right" src="http://upload.wikimedia.org/wikipedia/commons/9/9a/Google_maps_logo.png"/>
     </h3> -->
+    <div ng-hide="formVar" class="reviewHeader">
+        <h3>
+            Hey {{yourUsername}}, Your about to put a review for {{place.name}} !
+        </h3>
+    </div>
+    <div ng-hide="formVar" class="newDiv"><img src={{newphotos}}></div>
     <form ng-hide="formVar" name="resForm" class="form-horizontal" novalidate 
     ng-submit="send()">
         <div class="form-group">
@@ -15,19 +21,33 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="resLat" class="col-xs-2 control-label">Latitude</label>
+            <label for="resLat" class="col-xs-2 control-label">Location</label>
             <div class="col-xs-10">
                 <input name="resLat" type="text" class="form-control" 
                 ng-model="place.vicinity" required />
             </div>
         </div>
         <div class="form-group">
+            <label for="resLat" class="col-xs-2 control-label">Title</label>
+            <div class="col-xs-10">
+                <input name="resLat" type="text" class="form-control" 
+                ng-model="place.title" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resLat" class="col-xs-2 control-label">Your Review</label>
+            <div class="col-xs-10">
+                <textarea rows="5" name="Text1" cols="40" rows="5" class="form-control" 
+                ng-model="place.yourreview" required /></textarea>
+            </div>
+        </div>
+        <!-- <div class="form-group">
             <label for="resLng" class="col-xs-2 control-label">Longitude</label>
             <div class="col-xs-10">
                 <input name="resLng" type="number" class="form-control" 
                 ng-model="place.lng" required />
             </div>
-        </div>
+        </div> -->
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
                 <button class="btn btn-success" 

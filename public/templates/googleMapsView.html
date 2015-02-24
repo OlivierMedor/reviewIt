@@ -17,8 +17,8 @@
         <div class="form-group">
             <label for="resLat" class="col-xs-2 control-label">Latitude</label>
             <div class="col-xs-10">
-                <input name="resLat" type="number" class="form-control" 
-                ng-model="place.lat" required />
+                <input name="resLat" type="text" class="form-control" 
+                ng-model="place.vicinity" required />
             </div>
         </div>
         <div class="form-group">
@@ -32,9 +32,12 @@
             <div class="col-xs-offset-2 col-xs-10">
                 <button class="btn btn-success" 
                 ng-disabled="resForm.$invalid">Confirm</button>
+
             </div>
+
         </div>
     </form>
+    <button ng-hide="formVar" ng-click="formVar = true">Go Back</button>
     
     <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
         <b> Error : </b>

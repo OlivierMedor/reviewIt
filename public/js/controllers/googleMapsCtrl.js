@@ -1,9 +1,13 @@
 var app = angular.module('rateIt');
 app.controller('newPlaceCtrl', function($scope, Map) {
     
+    
     $scope.place = {};
     $scope.formVar = true;
     $scope.search = function() {
+     var newAutoCompleteVar = autocomplete.getPlace();
+     console.log(newAutoCompleteVar);
+
         $scope.apiError = false;
         Map.search($scope.searchPlace)
         .then(
@@ -12,7 +16,7 @@ app.controller('newPlaceCtrl', function($scope, Map) {
                 $scope.formVar = false;
                 Map.addMarker(res);
                 $scope.place.name = res.name;
-                $scope.place.lat = res.geometry.location.lat();
+                $scope.place.vicinity = res.vicinity;
                 $scope.place.lng = res.geometry.location.lng();
                 
             },

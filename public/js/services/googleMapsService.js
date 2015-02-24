@@ -40,7 +40,7 @@ app.service('Map', function($q, $window) {
     
     this.search = function(str) {
 
-        console.log(str)
+        
         var d = $q.defer();
         places.nearbySearch({keyword: str, location: location, radius: 20000}, function(results, status) {
 

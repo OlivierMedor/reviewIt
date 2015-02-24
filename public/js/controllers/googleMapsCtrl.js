@@ -6,10 +6,10 @@ app.controller('newPlaceCtrl', function($scope, Map) {
     $scope.formVar = true;
     $scope.search = function() {
      var newAutoCompleteVar = autocomplete.getPlace();
-     console.log(newAutoCompleteVar);
+     
 
         $scope.apiError = false;
-        Map.search($scope.searchPlace)
+        Map.search(newAutoCompleteVar.name + ', ' + newAutoCompleteVar.vicinity)
         .then(
             function(res) { // success
                 console.log(res)

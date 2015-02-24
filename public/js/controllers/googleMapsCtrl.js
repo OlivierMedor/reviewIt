@@ -32,7 +32,7 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
                 $scope.place.vicinity = newAutoCompleteVar.vicinity;
                 // $scope.place.lng = res.geometry.location.lng();
                 var photos = res.photos;
-                
+
                 
             },
             function(status) { // error
@@ -41,10 +41,17 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
             }
         );
     }
-    
+    $scope.starsRating = function(str){
+        $scope.newStarRating = str;
+        console.log($scope.newStarRating);
+
+    }
+
     $scope.send = function() {
        
-        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);    
+        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng); 
+        console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity);
+        
     }
     
 

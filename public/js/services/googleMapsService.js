@@ -10,6 +10,7 @@ app.service('Map', function($q, $window) {
         
         $window.navigator.geolocation.getCurrentPosition(function(position){
             
+            
             location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
             
             // var defaultBounds = new google.maps.LatLngBounds(

@@ -1,5 +1,9 @@
 var app = angular.module('rateIt');
 app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardService) {
+    $scope.$on('$viewContentLoaded', function() {
+    $scope.getReviews();
+});
+
     $scope.postReviews = function(){
         $scope.getReviews();
 
@@ -8,7 +12,8 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
     $scope.yourUsername = $routeParams.userId;
     $scope.getReviews = function(){
         dashboardService.getReview().then(function(res){
-            console.log(res)
+            $scope.allYourReviews = res
+            console.log($scope.allYourReviews);
         })
 
     }
@@ -19,14 +24,14 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
     $scope.formVar = true;
     $scope.search = function() {
      var newAutoCompleteVar = autocomplete.getPlace();
-     console.log(newAutoCompleteVar);
+     
      
 
         $scope.apiError = false;
         Map.search(newAutoCompleteVar.name + ', ' + newAutoCompleteVar.vicinity)
         .then(
             function(res) { // success
-                console.log(res)
+                
                 $scope.formVar = false;
                 Map.addMarker(res);
                 var photos = res.photos;

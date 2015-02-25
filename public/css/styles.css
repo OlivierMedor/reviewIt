@@ -24,7 +24,7 @@ body > div > header {
 
 body > div > nav {
 	order: 2;
-	flex: 0 1 200px;
+	flex: 0 1 150px;
 }
 body > div > main {
 	order: 3;
@@ -42,7 +42,8 @@ body > div > footer {
 }
 .container {
 	text-align: center;
-	padding-top: 10%;
+	padding-top:3%;
+
 }
 @charset "utf-8";
 /* CSS Document */
@@ -147,6 +148,7 @@ h3 img {
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid silver;
+
 }
 
 .searchForm {
@@ -203,4 +205,11 @@ h3 img {
 /* Just for the demo */
 body {
     margin: 20px;
+}
+
+.asidecontent {
+	height: 550px;
+	width: 150px;
+	float: right;
+
 }

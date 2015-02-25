@@ -18,9 +18,8 @@ app.config(function($routeProvider){
     templateUrl: 'templates/register.html',
     controller: 'mainCtrl'
   })
-  // .when('/', {
-  //   templateUrl: 'templates/googleMapsView.html',
-  //   controller: 'newPlaceCtrl'
-  // })
+  .otherwise({
+   redirectTo: '/'
+  });
 })
   

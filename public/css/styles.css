@@ -213,3 +213,17 @@ body {
 	float: right;
 
 }
+.searchDiv {
+	width: 40%;
+	height: 500px;
+	
+	float: left;
+
+}
+.resultsDiv {
+	width: 60%;
+	height: 500px;
+	
+	float: right;
+
+}

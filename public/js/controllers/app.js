@@ -10,7 +10,7 @@ app.config(function($routeProvider){
     templateUrl: 'templates/googleMapsView.html',
     controller: 'newPlaceCtrl'
   })
-  .when('/search-results', {
+  .when('/', {
     templateUrl: 'templates/search-results.html',
     controller: 'searchResultsCtrl'
   })

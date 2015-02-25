@@ -1,11 +1,25 @@
 var app = angular.module('rateIt');
-app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardService) {
+app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $window, dashboardService) {
     $scope.$on('$viewContentLoaded', function() {
     $scope.getReviews();
+
 });
 
     $scope.postReviews = function(){
-        $scope.getReviews();
+        //$scope.getReviews();
+        sweetAlert({
+  title: "Your Review",
+  text: "Thank you for your review! Feel free to submit another review :-)",
+  type: "success",
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "OK",
+  closeOnConfirm: true,
+  html: false
+}, function(){
+  $window.location.reload()
+
+});
+
 
         dashboardService.postReview($scope.place.name, $scope.place.vicinity, $scope.place.title, $scope.place.yourreview, $scope.newStarRating);
     }
@@ -13,7 +27,8 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
     $scope.getReviews = function(){
         dashboardService.getReview().then(function(res){
             $scope.allYourReviews = res
-            console.log($scope.allYourReviews);
+
+
         })
 
     }
@@ -59,9 +74,8 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
 
     $scope.send = function() {
         $scope.postReviews();
-       
-         
-        console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity + ' ' + $scope.place.yourreview + ' ' +  $scope.newStarRating);
+                
+        //console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity + ' ' + $scope.place.yourreview + ' ' +  $scope.newStarRating);
         
     }
     

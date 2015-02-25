@@ -71,5 +71,6 @@ app.post('/api/register', function(req, res) {
 	});
 });
 app.get('/api/get-review', isAuthed, ReviewsCtrl.list);
+app.get('/api/show-reviews', ReviewsCtrl.show);
 app.post('/api/post-review', isAuthed, ReviewsCtrl.create);
 app.delete('/api/delete-review/:id', isAuthed, ReviewsCtrl.erase);

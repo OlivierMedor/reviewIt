@@ -30,4 +30,14 @@ app.service('dashboardService', function($http, $q){
 		})
 		return deferred.promise;
 	}
+	this.getAllReviews = function(){
+		var deferred = $q.defer();
+		$http({
+			method: 'GET',
+			url: '/api/show-reviews'
+		}).then(function(res){
+			deferred.resolve(res.data);
+		})
+		return deferred.promise;
+	}
 })

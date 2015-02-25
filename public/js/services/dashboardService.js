@@ -11,4 +11,23 @@ app.service('dashboardService', function($http, $q){
 		})
 		return deferred.promise;
 	}
+	this.postReview = function(companyName, address, title, yourReview, stars) {
+		var deferred = $q.defer();
+		$http({
+			method: 'POST',
+			url: '/api/post-review',
+			data: {
+				companyName: companyName,
+				address: address,
+				title: title,
+				yourReview: yourReview,
+				stars: stars
+
+			}
+		}).then(function(response){
+			deferred.resolve(response);
+
+		})
+		return deferred.promise;
+	}
 })

@@ -1,5 +1,10 @@
 var app = angular.module('rateIt');
 app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardService) {
+    $scope.postReviews = function(){
+        $scope.getReviews();
+
+        dashboardService.postReview($scope.place.name, $scope.place.vicinity, $scope.place.title, $scope.place.yourreview, $scope.newStarRating);
+    }
     $scope.yourUsername = $routeParams.userId;
     $scope.getReviews = function(){
         dashboardService.getReview().then(function(res){
@@ -48,9 +53,10 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, dashboardServ
     }
 
     $scope.send = function() {
+        $scope.postReviews();
        
-        alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng); 
-        console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity);
+         
+        console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity + ' ' + $scope.place.yourreview + ' ' +  $scope.newStarRating);
         
     }
     

@@ -1,8 +1,17 @@
 <div class="searchDiv"><H3>New Search Div</H3>
-	<select class="searchForm"><option value="SearchReviews">Search Reviews</option><option value="WriteReviews">Write Reviews</option></select><form class="searchFormInput">
-<input type="text" name="firstname">
+	<select class="searchForm"><option value="MostRecent">Most Recent Reviews</option><option value="Highestrated">Highest Rated</option></select>
+<form ><input ng-model="homepageSearchField" class="searchFormInput" type="text" placeholder="Enter Business Name" name="firstname">
 
-</form>
+</form><button class="homePageSearchButton">submit</button>
 
 </div>
-<div class="resultsDiv"></div>
+<div class="resultsDiv"><h3>Recent Reviews</h3>
+	<p ng-repeat="item in allReviews | limitTo: 4">
+		Title: {{item.title}}<br>
+		Place: {{item.companyName}}<br>
+		Address: {{item.address}}<br>
+		Review: {{item.yourReview}}<br>
+		Stars: {{item.stars}}
+	</p>
+
+</div>

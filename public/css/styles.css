@@ -214,19 +214,23 @@ body {
 
 }
 .searchDiv {
-	width: 40%;
+	width: 45%;
 	height: 500px;
 	
 	float: left;
 
 }
 .resultsDiv {
-	width: 60%;
+	width: 55%;
 	height: 500px;
 	
 	float: right;
 
 }
 .searchFormInput {
+	display: inherit;
+	float: left
+}
+.homePageSearchButton {
 	display: inherit;
 }

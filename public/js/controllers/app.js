@@ -1,6 +1,8 @@
 var app = angular.module('rateIt', ['ngRoute'])
 
 app.config(function($routeProvider){
+  
+
 	$routeProvider
 		 .when('/login',{
     templateUrl: 'templates/login.html',
@@ -8,11 +10,20 @@ app.config(function($routeProvider){
   })
   .when('/dashboard/:userId', {
     templateUrl: 'templates/googleMapsView.html',
-    controller: 'newPlaceCtrl'
+    controller: 'newPlaceCtrl',
+    resolve: {
+      loginRequired: function(dashboardService) {  
+      return dashboardService.checkAuthenticate();
+    
+    }
+
+  }
+
   })
   .when('/', {
     templateUrl: 'templates/search-results.html',
-    controller: 'searchResultsCtrl'
+    controller: 'searchResultsCtrl',
+    
   })
   .when('/register', {
     templateUrl: 'templates/register.html',

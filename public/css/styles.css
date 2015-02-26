@@ -227,3 +227,6 @@ body {
 	float: right;
 
 }
+.searchFormInput {
+	display: inherit;
+}

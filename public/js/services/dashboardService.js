@@ -1,6 +1,6 @@
 var app = angular.module('rateIt');
 
-app.service('dashboardService', function($http, $q){
+app.service('dashboardService', function($http, $q, $location){
 	this.getReview = function(){
 		var deferred = $q.defer();
 		$http({
@@ -40,4 +40,17 @@ app.service('dashboardService', function($http, $q){
 		})
 		return deferred.promise;
 	}
+	this.checkAuthenticate = function(){
+    var deferred = $q.defer();
+    $http({
+      method: 'GET',
+      url: '/api/check-status'
+    }).then(function(res){
+      console.log(res)
+      deferred.resolve(res.data);
+    }, function(){
+    	$location.path('/login');
+    })
+    return deferred.promise;
+  }
 })

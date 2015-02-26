@@ -74,3 +74,10 @@ app.get('/api/get-review', isAuthed, ReviewsCtrl.list);
 app.get('/api/show-reviews', ReviewsCtrl.show);
 app.post('/api/post-review', isAuthed, ReviewsCtrl.create);
 app.delete('/api/delete-review/:id', isAuthed, ReviewsCtrl.erase);
+app.get('/api/check-status', function(req, res){
+	if(!req.isAuthenticated()){
+		return res.status(404).end();
+	}else{
+		return res.status(200).end();
+	}
+});

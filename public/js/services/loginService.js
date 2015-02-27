@@ -32,6 +32,11 @@ app.service('LoginService', function($q, $http) {
 		})
 		.catch(function(err) {
 			console.log("error logging in");
+			swal({   
+				title: "Error!",   
+				text: "Error logging in, please try again",   
+				type: "error",   
+				confirmButtonText: "Ok" });
 			deferred.reject(err);
 		});
 		return deferred.promise;

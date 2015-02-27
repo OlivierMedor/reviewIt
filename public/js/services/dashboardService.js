@@ -49,6 +49,11 @@ app.service('dashboardService', function($http, $q, $location){
       console.log(res)
       deferred.resolve(res.data);
     }, function(){
+    	swal({   
+    		title: "Error!",   
+    		text: "You need to be logged in!",   
+    		type: "error",   
+    		confirmButtonText: "Ok" });
     	$location.path('/login');
     })
     return deferred.promise;

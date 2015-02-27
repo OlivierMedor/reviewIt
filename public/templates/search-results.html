@@ -1,17 +1,30 @@
-<div class="searchDiv"><H3>New Search Div</H3>
-	<select class="searchForm"><option value="MostRecent">Most Recent Reviews</option><option value="Highestrated">Highest Rated</option></select>
-<form ><input ng-model="homepageSearchField" class="searchFormInput" type="text" placeholder="Enter Business Name" name="firstname">
+<div class="searchDiv" ng-controller="newPlaceCtrl"><H3>New Search Div</H3>
+
+<form ><input id="pac-input" ng-model="homepageSearchField" class="searchFormInput" type="text" placeholder="Enter Business Name" name="firstname">
 
 </form><button class="homePageSearchButton">submit</button>
+<div id="map"></div>
+    
+
+    <div id="map-canvas"></div>
 
 </div>
-<div class="resultsDiv"><h3>Recent Reviews</h3>
-	<p ng-repeat="item in allReviews | limitTo: 4">
+<div class="resultsDiv"><select ng-model="reviewsSorting" ng-change="reviewsSortingFunction()" class="searchForm"><option ng-repeat="items in selectDisplayOfReviews" >{{items}}</option></select>
+<div class="selectReviewsDiv">
+	<p ng-hide="mostRecentResults" ng-repeat="item in allReviews.reverse() | limitTo: 4">
 		Title: {{item.title}}<br>
 		Place: {{item.companyName}}<br>
 		Address: {{item.address}}<br>
 		Review: {{item.yourReview}}<br>
 		Stars: {{item.stars}}
 	</p>
+	<p ng-show="mostRecentResults" ng-repeat="item in allReviews.reverse() | orderBy: orderTo: true ">
+		Title: {{item.title}}<br>
+		Place: {{item.companyName}}<br>
+		Address: {{item.address}}<br>
+		Review: {{item.yourReview}}<br>
+		Stars: {{item.stars}}
+	</p>
+	</div>
 
 </div>

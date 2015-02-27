@@ -5,7 +5,7 @@ var schema = mongoose.Schema({
 	address: {type: String, require:true},
 	title: {type: String, require: true, index: true, Unique: true},
 	yourReview: {type: String, require: true, unique: true},
-	stars: Number,
+	stars: {type:Number, default: 0},
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true }
 });
 

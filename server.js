@@ -8,7 +8,7 @@ var port = 9001;
 var app = express();
 var User = require('./api/models/user');
 var ReviewsCtrl = require('./api/controllers/newRatingCtrl');
-
+app.listen(process.env.EXPRESS_PORT || port); 
 
 app.use(bodyParser.json());
 app.use(session({
@@ -21,9 +21,7 @@ mongoose.connect('mongodb://localhost/rateit', function(){
 	console.log('connected to mongodb');
 });
 
-app.listen(port, function(){
-	console.log('listening on port ' + port);
-})
+
 
 passport.use(new LocalStrategy(
   function(username, password, done) {

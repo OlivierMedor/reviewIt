@@ -7,6 +7,7 @@ app.service('dashboardService', function($http, $q, $location){
 			method: 'GET',
 			url: '/api/get-review'
 		}).then(function(res){
+			
 			deferred.resolve(res.data);
 		})
 		return deferred.promise;
@@ -51,7 +52,7 @@ app.service('dashboardService', function($http, $q, $location){
     }, function(){
     	swal({   
     		title: "Error!",   
-    		text: "You need to be logged in!",   
+    		text: "You need to be logged in or register!",   
     		type: "error",   
     		confirmButtonText: "Ok" });
     	$location.path('/login');

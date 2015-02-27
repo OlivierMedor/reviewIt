@@ -54,6 +54,7 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
                     $scope.newphotos = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
                      }
                 $scope.place.name = res.name;
+                console.log($scope.place.name);
                 $scope.place.vicinity = newAutoCompleteVar.vicinity;
                 // $scope.place.lng = res.geometry.location.lng();
                 var photos = res.photos;

@@ -12,7 +12,7 @@ app.config(function($routeProvider){
     templateUrl: 'templates/googleMapsView.html',
     controller: 'newPlaceCtrl',
     resolve: {
-      loginRequired: function(dashboardService) {  
+      loginRequired: function(dashboardService) { 
       return dashboardService.checkAuthenticate();
     
     }

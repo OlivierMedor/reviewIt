@@ -1,6 +1,6 @@
 var app = angular.module('rateIt');
 
-app.service('dashboardService', function($http, $q, $location){
+app.service('dashboardService', function($http, $q, $location, $routeParams){
 	this.getReview = function(){
 		var deferred = $q.defer();
 		$http({
@@ -9,6 +9,7 @@ app.service('dashboardService', function($http, $q, $location){
 		}).then(function(res){
 			
 			deferred.resolve(res.data);
+
 		})
 		return deferred.promise;
 	}
@@ -38,6 +39,7 @@ app.service('dashboardService', function($http, $q, $location){
 			url: '/api/show-reviews'
 		}).then(function(res){
 			deferred.resolve(res.data);
+			
 		})
 		return deferred.promise;
 	}
@@ -46,9 +48,11 @@ app.service('dashboardService', function($http, $q, $location){
     $http({
       method: 'GET',
       url: '/api/check-status'
-    }).then(function(res){
-      console.log(res)
-      deferred.resolve(res.data);
+    }).then(function(res){ 
+    console.log(res) ;    
+
+      	deferred.resolve(res.data);
+      
     }, function(){
     	swal({   
     		title: "Error!",   
@@ -59,4 +63,5 @@ app.service('dashboardService', function($http, $q, $location){
     })
     return deferred.promise;
   }
+
 })

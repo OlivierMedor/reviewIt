@@ -1,7 +1,56 @@
 var app = angular.module('rateIt');
 app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $window, dashboardService) {
+
+
+    
+    $scope.checkForReview = function(){
+        
+        
+        dashboardService.getAllReviews().then(function(res){
+          
+
+            $scope.hasBeenReviewed = [];
+            for (var i = 0; i < res.length; i++) {
+
+                if(res[i].companyName === $scope.place.name){
+
+                 $scope.hasBeenReviewed.push(res[i]);
+                 $scope.ifHasBeenReviewed = true;
+                 
+
+                    
+                }
+                
+
+                
+
+
+            };
+           
+            
+            
+            
+
+        })
+        
+
+    }
+
     $scope.$on('$viewContentLoaded', function() {
     $scope.getReviews();
+    dashboardService.checkAuthenticate().then(function(res){
+        if(res.username !== $routeParams.userId){
+
+            $location.path('/login');
+            swal({   
+            title: "Error!",   
+            text: "You must login to your own dashboard",   
+            type: "error",   
+            confirmButtonText: "Ok" });
+
+        }
+
+    })
 
 });
 
@@ -41,6 +90,7 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
      var newAutoCompleteVar = autocomplete.getPlace();
      
      
+     
 
         $scope.apiError = false;
         Map.search(newAutoCompleteVar.name + ', ' + newAutoCompleteVar.vicinity)
@@ -54,7 +104,8 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
                     $scope.newphotos = photos[0].getUrl({'maxWidth': 150, 'maxHeight': 150});
                      }
                 $scope.place.name = res.name;
-                console.log($scope.place.name);
+                $scope.checkForReview();
+                
                 $scope.place.vicinity = newAutoCompleteVar.vicinity;
                 // $scope.place.lng = res.geometry.location.lng();
                 var photos = res.photos;
@@ -79,6 +130,7 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
         //console.log($scope.place.title + ' ' + $scope.place.name + ' ' + $scope.place.vicinity + ' ' + $scope.place.yourreview + ' ' +  $scope.newStarRating);
         
     }
+    
     
 
     Map.init();

@@ -1,4 +1,22 @@
-<div class="searchDiv" ng-controller="newPlaceCtrl"><H3 ng-hide="formVar">Would you like to review {{place.name}} ?</H3>
+<div class="searchDiv" ng-controller="newPlaceCtrl">
+	<div ng-hide="formVar">
+
+		<div ng-show="ifHasBeenReviewed"> 
+
+			<h3>Reviews for {{place.name}}</h3><br>
+
+			<h4 ng-repeat="reviews in hasBeenReviewed"> 
+			Title: {{reviews.title}}<br>
+			Address: {{reviews.address}}<br>
+			Review: {{reviews.yourReview}}<br>
+			Stars: {{reviews.stars}}
+			</h4>
+
+		</div>
+
+		<div ng-hide="ifHasBeenReviewed"><h3>{{place.name}} has not been reviewed yet, do you want to be the first? </h3></div>
+
+	</div>
 
 <form ><input ng-show="formVar" id="pac-input" ng-model="homepageSearchField" class="searchFormInput" type="text" placeholder="Enter Business Name" name="firstname">
 

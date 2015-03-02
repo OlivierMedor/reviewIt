@@ -3,6 +3,7 @@ var rating = require('./../models/newRating');
 module.exports = {
 	list: function(req, res) {
 		rating.find({ user: req.user._id }).exec().then(function(reviews) {
+		
 			return res.json(reviews);
 			
 		});
@@ -28,5 +29,6 @@ module.exports = {
 			return res.json(reviews);
 		});
 	},
+	
 	
 };

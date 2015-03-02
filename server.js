@@ -8,7 +8,7 @@ var port = 9001;
 var app = express();
 var User = require('./api/models/user');
 var ReviewsCtrl = require('./api/controllers/newRatingCtrl');
-app.listen(process.env.EXPRESS_PORT || port); 
+
 
 app.use(bodyParser.json());
 app.use(session({
@@ -21,7 +21,9 @@ mongoose.connect('mongodb://localhost/rateit', function(){
 	console.log('connected to mongodb');
 });
 
-
+app.listen(port, function(){
+	console.log('listening on port ' + port);
+})
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -49,6 +51,7 @@ passport.deserializeUser(function(id, done) {
 
 var isAuthed = function(req, res, next){
 	if(!req.isAuthenticated()) {
+		console.log(res);
 		return res.status(403).end();
 	}
 	return next();
@@ -76,6 +79,8 @@ app.get('/api/check-status', function(req, res){
 	if(!req.isAuthenticated()){
 		return res.status(404).end();
 	}else{
-		return res.status(200).end();
+		return res.status(200).send(req.user);
 	}
+
 });
+

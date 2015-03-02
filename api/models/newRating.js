@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
-	companyName: {type: String, require: true},
+	companyName: {type: String, require: true, index: true},
 	address: {type: String, require:true},
 	title: {type: String, require: true, index: true, Unique: true},
 	yourReview: {type: String, require: true, unique: true},

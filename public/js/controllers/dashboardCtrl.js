@@ -5,6 +5,8 @@ app.controller('dashboardCtrl', function($scope, $routeParams, dashboardService)
 	
 $scope.$on('$viewallContentLoaded', function() {
     $scope.getAllReviews();
+    
+
 
 });
 

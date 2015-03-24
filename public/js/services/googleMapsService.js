@@ -64,6 +64,7 @@ app.service('Map', function($q, $window) {
         });
         google.maps.event.addListener(marker, 'click', toggleBounce);
         map.setCenter(res.geometry.location);
+        console.log(res.geometry.location)
     }
     function toggleBounce() {
 

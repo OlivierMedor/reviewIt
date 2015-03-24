@@ -2,7 +2,7 @@
 
 	<div id="login">
 
-		<h2><span class="fontawesome-lock"></span>Log In</h2>
+		<h2><span class="fontawesome-lock"></span>Register</h2>
 
 		<form action="javascript:void(0);" method="POST">
 
@@ -18,6 +18,7 @@
 				<p><input ng-model="password" type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
 
 				<p><input type="submit" value="Sign In" ng-click="clickRegister()"></p>
+				<a href="#/login">Already a member? Login here</a>
 
 			</fieldset>
 

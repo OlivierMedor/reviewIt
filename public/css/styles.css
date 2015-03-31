@@ -245,3 +245,29 @@ h3 img {
 	overflow: auto;
 	height: 90%;
 }
+.lgnbtn {
+  background: #acb0b3;
+  background-image: -webkit-linear-gradient(top, #acb0b3, #0d4f78);
+  background-image: -moz-linear-gradient(top, #acb0b3, #0d4f78);
+  background-image: -ms-linear-gradient(top, #acb0b3, #0d4f78);
+  background-image: -o-linear-gradient(top, #acb0b3, #0d4f78);
+  background-image: linear-gradient(to bottom, #acb0b3, #0d4f78);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.lgnbtn:hover {
+  background: #586a75;
+  background-image: -webkit-linear-gradient(top, #586a75, #0a0d0f);
+  background-image: -moz-linear-gradient(top, #586a75, #0a0d0f);
+  background-image: -ms-linear-gradient(top, #586a75, #0a0d0f);
+  background-image: -o-linear-gradient(top, #586a75, #0a0d0f);
+  background-image: linear-gradient(to bottom, #586a75, #0a0d0f);
+  text-decoration: none;
+}

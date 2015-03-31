@@ -271,3 +271,9 @@ h3 img {
   background-image: linear-gradient(to bottom, #586a75, #0a0d0f);
   text-decoration: none;
 }
+.businessRadioBox {
+	height: 8px;
+	width: 8px;
+	background-color: #ffffff;
+	
+}

@@ -28,6 +28,10 @@
 
 				<p><label for="password">Password</label></p>
 				<p><input ng-model="password" type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+				<input class="businessRadioBox" type="checkbox" name="your-group" value="unit-in-group" />Are you a business?
+					
+				
+
 
 				<p><input type="submit" value="Sign In" ng-click="clickRegister()"></p>
 				<a href="#/login">Already a member? Login here</a>

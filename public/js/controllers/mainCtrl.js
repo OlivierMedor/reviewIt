@@ -1,11 +1,11 @@
 var app = angular.module('rateIt');
 
-app.controller('mainCtrl', function($scope, $location, LoginService){
+app.controller('mainCtrl', function($scope, Map, $location, LoginService){
 	$scope.clickRegister = function() {
 		LoginService.register($scope.username, $scope.password, $scope.email).then(function(data) {
-			
+			$scope.login();
 			$scope.registerSuccessful = true;
-			$location.path('dashboard/' + data.username);
+			
 		}).catch(function(err) {
 			
 			$scope.regError = true;
@@ -21,7 +21,7 @@ app.controller('mainCtrl', function($scope, $location, LoginService){
 		})
 	}
 	
-
+Map.init();
 })
 
 

@@ -7,6 +7,7 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
         
         
         dashboardService.getAllReviews().then(function(res){
+            
           
 
             $scope.hasBeenReviewed = [];
@@ -120,8 +121,6 @@ app.controller('newPlaceCtrl', function($scope, Map, $routeParams, $location, $w
     }
     $scope.starsRating = function(str){
         $scope.newStarRating = str;
-        console.log($scope.newStarRating);
-
     }
 
     $scope.send = function() {

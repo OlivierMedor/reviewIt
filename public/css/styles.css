@@ -1,25 +1,24 @@
 
-body {
+html, body {
 	margin: 0px;
-	
+	height: 100%;
+	width: 100%;
 }
-body > div{
-	display: flex;
-	flex-flow:  row wrap;
-	min-width: 800px;
+.ifHasBeenReviewedDiv{
+	max-height: 130px;
+	overflow-y: auto;
 }
 
 body > div > header,  nav, main, aside, footer {
-	background: #ccc; 
 	border-radius: 7px; 
-	margin: 5px; 
 	padding: 20px;
 	text-align: center;
 }
 body > div > header {
 	order: 1;
-	height:  25px;
+	height:  2%;
 	flex: 0 1 100%;
+	
 }
 
 body > div > nav {
@@ -31,7 +30,7 @@ body > div > main {
 	min-height: 400px;
 	flex: 1;
 }
-body > div > aside {
+/*body > div > aside {
 	order: 4;
 	flex: 0 1 200px;
 }
@@ -39,7 +38,7 @@ body > div > footer {
 	order: 5;
 	height: 25px;
 	flex: 0 1 100%;
-}
+}*/
 .container {
 	text-align: center;
 	padding-top:3%;
@@ -143,12 +142,21 @@ input {
 h3 img {
     max-height: 50px;
 }
-#map { 
-    height: 400px;
-    margin: 20px 0;
-    border-radius: 5px;
-    border: 1px solid silver;
-
+#map {
+  height: 100%;
+  width: 100%;
+}
+.bodyMainDiv {
+  background-color:rgba(216, 198, 198, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 800px;
+  height: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
 
 .searchForm {
@@ -171,7 +179,6 @@ h3 img {
 /*.rating:not(:checked) > label:before {
     content: '★ ';
 }
-
 */
 .rating {
     overflow: hidden;
@@ -203,9 +210,6 @@ h3 img {
 }
 
 /* Just for the demo */
-body {
-    margin: 20px;
-}
 
 .asidecontent {
 	height: 550px;
@@ -214,14 +218,14 @@ body {
 
 }
 .searchDiv {
-	width: 45%;
+	width: 55%;
 	height: 500px;
 	
 	float: left;
 
 }
 .resultsDiv {
-	width: 55%;
+	width: 45%;
 	height: 500px;
 	
 	float: right;
@@ -233,4 +237,8 @@ body {
 }
 .homePageSearchButton {
 	display: inherit;
+}
+.navDiv{
+  margin-top:100px;
+  float: left;
 }

@@ -15,20 +15,22 @@
 	<![endif]-->
 	<title>RateIt</title>
 </head>
-
+ 
 <body ng-app="rateIt" ng-controller="mainCtrl">
-	<div>
+	<div id="map"></div>
+	
+	<div class="bodyMainDiv">
 		<!-- <header>Header</header> -->
-		<nav>
+		<!-- <nav>
 			
 			<ul>
 				
 					<h3><a href="/#/login">Login</a></h3>
 					<h3><a href="/#/register">Register</a></h3>
-					<h3><a href="/#/">Home</a></h3>
+					<h3><a href="#/home">Home</a></h3>
 			    
 		    </ul>
-	    </nav>
+	    </nav> -->
 		<main><ng-view></ng-view>
 			
 		</main>

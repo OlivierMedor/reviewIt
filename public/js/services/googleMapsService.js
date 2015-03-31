@@ -1,7 +1,7 @@
 var app = angular.module('rateIt');
 app.service('Map', function($q, $window) {
 
-    var map, places, marker;
+    var map, places, marker, marker1;
     var location;    
     
     this.init = function() {
@@ -34,6 +34,11 @@ app.service('Map', function($q, $window) {
                 document.getElementById("map"), options
             );
             places = new google.maps.places.PlacesService(map);
+            marker1 = new google.maps.Marker({
+              position: location,
+              map: map,
+              title: 'You Are Here'
+          });
         });
 
         

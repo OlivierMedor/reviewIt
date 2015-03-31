@@ -1,9 +1,23 @@
 <div class="searchDiv" ng-controller="newPlaceCtrl">
+	<div class="navDiv">
+	
+			
+			<ul>
+				
+					<h3><a href="/#/login">Login</a></h3>
+					<h3><a href="/#/register">Register</a></h3>
+					<h3><a href="#/home">Home</a></h3>
+			    
+		    </ul>
+	    
+	</div>
 	<div ng-hide="formVar">
+		
 
-		<div ng-show="ifHasBeenReviewed"> 
 
-			<h3>Reviews for {{place.name}}</h3><br>
+		<div class="ifHasBeenReviewedDiv" ng-show="ifHasBeenReviewed"> 
+
+			<h3>Reviews for {{place.name}}</h3>
 
 			<h4 ng-repeat="reviews in hasBeenReviewed"> 
 			Title: {{reviews.title}}<br>
@@ -14,29 +28,36 @@
 
 		</div>
 
-		<div ng-hide="ifHasBeenReviewed"><h3>{{place.name}} has not been reviewed yet, do you want to be the first? </h3></div>
+		<div ng-hide="ifHasBeenReviewed">
+			<h3>{{place.name}} has not been reviewed yet, do you want to be the first? <br>
+				<a href="#/register">Register here </a>to be the first
+		</h3>
+	</div>
 
 	</div>
 
 <form ><input ng-show="formVar" id="pac-input" ng-model="homepageSearchField" class="searchFormInput" type="text" placeholder="Enter Business Name" name="firstname">
 
 </form><button ng-show="formVar" class="homePageSearchButton" ng-click="search()">submit</button>
-<div id="map"></div>
-    
 
-    <div id="map-canvas"></div>
+   
+    <div>
+		<H2>New Content</H2>
+	</div>
+
+    
 
 </div>
 <div class="resultsDiv"><select ng-model="reviewsSorting" ng-change="reviewsSortingFunction()" class="searchForm"><option ng-repeat="items in selectDisplayOfReviews" >{{items}}</option></select>
 <div class="selectReviewsDiv">
-	<p ng-hide="mostRecentResults" ng-repeat="item in allReviews.reverse() | limitTo: 4">
+	<p ng-hide="mostRecentResults" ng-repeat="item in allReviews.reverse() | limitTo: 5">
 		Title: {{item.title}}<br>
 		Place: {{item.companyName}}<br>
 		Address: {{item.address}}<br>
 		Review: {{item.yourReview}}<br>
 		Stars: {{item.stars}}
 	</p>
-	<p ng-show="mostRecentResults" ng-repeat="item in allReviews.reverse() | orderBy: orderTo: true ">
+	<p ng-show="mostRecentResults" ng-repeat="item in allReviews.reverse() | limitTo: 5 | orderBy: orderTo: true ">
 		Title: {{item.title}}<br>
 		Place: {{item.companyName}}<br>
 		Address: {{item.address}}<br>

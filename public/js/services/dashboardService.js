@@ -48,8 +48,7 @@ app.service('dashboardService', function($http, $q, $location, $routeParams){
     $http({
       method: 'GET',
       url: '/api/check-status'
-    }).then(function(res){ 
-    console.log(res) ;    
+    }).then(function(res){     
 
       	deferred.resolve(res.data);
       

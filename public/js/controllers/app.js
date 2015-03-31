@@ -22,8 +22,7 @@ app.config(function($routeProvider){
   })
   .when('/', {
     templateUrl: 'templates/search-results.html',
-    controller: 'searchResultsCtrl',
-    
+    controller: 'searchResultsCtrl'
   })
   .when('/register', {
     templateUrl: 'templates/register.html',

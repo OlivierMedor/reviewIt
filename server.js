@@ -20,11 +20,7 @@ app.use(express.static(__dirname+'/public'));
 mongoose.connect('mongodb://localhost/rateit', function(){
 	console.log('connected to mongodb');
 });
-
-app.listen(port, function(){
-	console.log('listening on port ' + port);
-})
-
+app.listen(process.env.EXPRESS_PORT || port);
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }).exec().then(function(user) {
@@ -76,6 +72,9 @@ app.get('/api/show-reviews', ReviewsCtrl.show);
 app.post('/api/post-review', isAuthed, ReviewsCtrl.create);
 app.delete('/api/delete-review/:id', isAuthed, ReviewsCtrl.erase);
 app.get('/api/check-status', function(req, res){
+	console.log('here')
+	console.log(res)
+
 	if(!req.isAuthenticated()){
 		return res.status(404).end();
 	}else{

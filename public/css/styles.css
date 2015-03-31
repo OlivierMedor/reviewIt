@@ -26,6 +26,7 @@ body > div > nav {
 	flex: 0 1 150px;
 }
 body > div > main {
+	width: 500px;
 	order: 3;
 	min-height: 400px;
 	flex: 1;

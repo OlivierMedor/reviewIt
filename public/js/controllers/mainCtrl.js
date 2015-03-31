@@ -21,7 +21,7 @@ app.controller('mainCtrl', function($scope, Map, $location, LoginService){
 		})
 	}
 	
-
+Map.init();
 })
 
 

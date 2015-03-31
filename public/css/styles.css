@@ -13,6 +13,7 @@ body > div > header,  nav, main, aside, footer {
 	border-radius: 7px; 
 	padding: 20px;
 	text-align: center;
+	color: white;
 }
 body > div > header {
 	order: 1;
@@ -85,7 +86,6 @@ input {
 }
 
 #login h2 {
-	background-color: #f95252;
 	-webkit-border-radius: 20px 20px 0 0;
 	-moz-border-radius: 20px 20px 0 0;
 	border-radius: 20px 20px 0 0;
@@ -99,7 +99,6 @@ input {
 }
 
 #login fieldset {
-	background-color: #fff;
 	-webkit-border-radius: 0 0 20px 20px;
 	-moz-border-radius: 0 0 20px 20px;
 	border-radius: 0 0 20px 20px;
@@ -107,7 +106,6 @@ input {
 }
 
 #login fieldset p {
-	color: #777;
 	margin-bottom: 14px;
 }
 

@@ -241,3 +241,7 @@ h3 img {
   margin-top:100px;
   float: left;
 }
+.selectReviewsDiv{
+	overflow: auto;
+	height: 90%;
+}

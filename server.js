@@ -20,7 +20,7 @@ app.use(express.static(__dirname+'/public'));
 mongoose.connect('mongodb://localhost/rateit', function(){
 	console.log('connected to mongodb');
 });
-app.listen(process.env.EXPRESS_PORT || port);
+app.listen(process.env.EXPRESS_PORT || 8888);
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }).exec().then(function(user) {
